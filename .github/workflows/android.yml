@@ -42,7 +42,7 @@ jobs:
             -Dopengl=true \
             -Dosmesa=true \
             -Dvulkan-drivers= \
-            -Dgallium-drivers=asahi \
+            -Dgallium-drivers=lima \
             -Dshared-glapi=false
           ninja -C "build-android" install
       - name: Upload libraries
