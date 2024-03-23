@@ -42,11 +42,11 @@ jobs:
             -Dopengl=true \
             -Dosmesa=true \
             -Dvulkan-drivers= \
-            -Dgallium-drivers=crocus \
+            -Dgallium-drivers=asahi \
             -Dshared-glapi=false
           ninja -C "build-android" install
       - name: Upload libraries
         uses: actions/upload-artifact@v2
         with:
-          name: libzink_${{matrix.arch}}
+          name: libOSMesa_${{matrix.arch}}
           path: /tmp/mesa
