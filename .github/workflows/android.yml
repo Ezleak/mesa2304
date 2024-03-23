@@ -29,7 +29,7 @@ jobs:
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           envsubst <android-${{matrix.arch}} >build-crossfile
           meson setup "build-android" \
-            --prefix=/tmp/zink \
+            --prefix=/tmp/mesa \
             --cross-file "build-crossfile" \
             -Dplatforms=android \
             -Dplatform-sdk-version=33 \
@@ -44,9 +44,10 @@ jobs:
             -Dvulkan-drivers= \
             -Dgallium-drivers=swrast,zink \
             -Dshared-glapi=false
+            -Dbuildtype=release
           ninja -C "build-android" install
       - name: Upload libraries
         uses: actions/upload-artifact@v2
         with:
           name: libzink_${{matrix.arch}}
-          path: /tmp/zink
+          path: /tmp/mesa
