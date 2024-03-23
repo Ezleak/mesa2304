@@ -44,7 +44,6 @@ jobs:
             -Dvulkan-drivers= \
             -Dgallium-drivers=crocus \
             -Dshared-glapi=false
-            -Dbuildtype=release
           ninja -C "build-android" install
       - name: Upload libraries
         uses: actions/upload-artifact@v2
